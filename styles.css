@@ -140,6 +140,21 @@ h1 {
     justify-content: center;
 }
 
+.section-title {
+    font-size: 3rem;
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    font-family: 'Gagalin', sans-serif;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -148,6 +163,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5rem;
 }
 
 .slide {
@@ -316,6 +332,11 @@ h1 {
     .next-btn {
         right: 10px;
     }
+
+    .section-title {
+        font-size: 2rem;
+        top: -3rem;
+    }
 }
 
 /* Even smaller screens */
@@ -365,6 +386,11 @@ h1 {
     .nav-btn {
         font-size: 1.2rem;
         padding: 0.3rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
     }
 }
 
