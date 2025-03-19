@@ -134,4 +134,74 @@ setInterval(() => {
     if (billsContainer.children.length < MAX_BILLS) {
         createDollarBill();
     }
-}, 1000); 
+}, 1000);
+
+// Music Player
+const tracks = [
+    { src: 'assets/ye.mp3', name: 'Ye' },
+    { src: 'assets/weekend.mp3', name: 'Weekend' },
+    { src: 'assets/travis.mp3', name: 'Travis' }
+];
+
+let currentTrackIndex = 0;
+let isPlaying = false;
+const audio = new Audio();
+audio.volume = 0.5; // Set initial volume to 50%
+
+// Get DOM elements
+const playPauseBtn = document.getElementById('playPauseBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const volumeSlider = document.getElementById('volumeSlider');
+const trackName = document.querySelector('.track-name');
+
+// Load first track
+audio.src = tracks[currentTrackIndex].src;
+updateTrackName();
+
+// Play/Pause
+playPauseBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+    } else {
+        audio.play();
+        playPauseBtn.textContent = '⏸';
+    }
+    isPlaying = !isPlaying;
+});
+
+// Previous track
+prevBtn.addEventListener('click', () => {
+    currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+    loadTrack();
+});
+
+// Next track
+nextBtn.addEventListener('click', () => {
+    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+    loadTrack();
+});
+
+// Volume control
+volumeSlider.addEventListener('input', (e) => {
+    audio.volume = e.target.value / 100;
+});
+
+// Auto-play next track when current one ends
+audio.addEventListener('ended', () => {
+    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+    loadTrack();
+});
+
+function loadTrack() {
+    audio.src = tracks[currentTrackIndex].src;
+    updateTrackName();
+    if (isPlaying) {
+        audio.play();
+    }
+}
+
+function updateTrackName() {
+    trackName.textContent = `Now Playing: ${tracks[currentTrackIndex].name}`;
+} 
