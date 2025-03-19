@@ -161,7 +161,7 @@ h1 {
     font-family: 'Gagalin', sans-serif;
     letter-spacing: 0.1em;
     position: absolute;
-    top: -4rem;
+    top: 1rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -351,7 +351,7 @@ h1 {
 
     .section-title {
         font-size: 2rem;
-        top: -3rem;
+        top: 1.5rem;
     }
 }
 
@@ -407,7 +407,7 @@ h1 {
 
     .section-title {
         font-size: 1.8rem;
-        margin-bottom: 1rem;
+        top: 2rem;
     }
 }
 
