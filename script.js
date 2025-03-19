@@ -204,4 +204,41 @@ function loadTrack() {
 
 function updateTrackName() {
     trackName.textContent = `Now Playing: ${tracks[currentTrackIndex].name}`;
-} 
+}
+
+// Slideshow functionality
+const slideshowSlides = document.querySelectorAll('.slide');
+const slideshowPrevBtn = document.querySelector('.prev-btn');
+const slideshowNextBtn = document.querySelector('.next-btn');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slideshowSlides.forEach(slide => slide.classList.remove('active'));
+    slideshowSlides[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideshowSlides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slideshowSlides.length) % slideshowSlides.length;
+    showSlide(currentSlide);
+}
+
+// Initialize first slide
+showSlide(0);
+
+// Add event listeners
+slideshowNextBtn.addEventListener('click', nextSlide);
+slideshowPrevBtn.addEventListener('click', prevSlide);
+
+// Add keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+        nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+    }
+});
