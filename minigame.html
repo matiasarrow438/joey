@@ -10,7 +10,7 @@
         body {
             margin: 0;
             overflow: hidden;
-            background: black;
+            background: url('assets/backgroundmini.png') center/cover no-repeat;
             font-family: 'Gagalin', sans-serif;
         }
 
@@ -24,19 +24,21 @@
         #player {
             position: absolute;
             bottom: 20px;
-            width: 100px;
+            width: 150px;
             height: auto;
             transform: translateX(-50%);
             z-index: 2;
             transition: left 0.1s ease-out;
+            filter: brightness(0.8) contrast(1.2) drop-shadow(0 0 5px black) drop-shadow(0 0 5px black) drop-shadow(0 0 5px black);
         }
 
         .money {
             position: absolute;
-            width: 50px;
+            width: 80px;
             height: auto;
             z-index: 1;
             animation: rotate 2s infinite linear;
+            filter: brightness(0.8) contrast(1.2) drop-shadow(0 0 5px black) drop-shadow(0 0 5px black) drop-shadow(0 0 5px black);
         }
 
         @keyframes rotate {
