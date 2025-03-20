@@ -6,6 +6,27 @@
     <title>HIGH INFLUENTIAL MALE - Rebuilding</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/background.gif') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .background-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+        }
+
         .rebuild-container {
             position: relative;
             height: 100vh;
@@ -15,7 +36,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            z-index: 2;
+            z-index: 3;
         }
 
         .rebuild-title {
